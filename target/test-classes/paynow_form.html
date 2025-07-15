@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mock PayNow Form</title>
+</head>
+<body>
+    <h2>PayNow Payment Form</h2>
+    <form id="paynowForm">
+        <label for="mobile">Mobile Number:</label><br>
+        <input type="text" id="mobile" name="mobile"><br><br>
+         <span id="mobileError" style="color:red; display:none;">Mobile number is required</span><br><br>
+
+        <label for="amount">Amount (SGD):</label><br>
+        <input type="text" id="amount" name="amount"><br><br>
+
+        <label for="reference">Reference:</label><br>
+        <input type="text" id="reference" name="reference"><br><br>
+
+        <button type="submit" id="submitBtn">Submit Payment</button>
+    </form>
+
+    <p id="confirmationMessage" style="color:green; display:none;">Payment submitted successfully!</p>
+
+    <script>
+    document.getElementById("paynowForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Reset error display
+        document.getElementById("mobileError").style.display = "none";
+
+        var mobile = document.getElementById("mobile").value;
+
+        if (mobile === "") {
+            document.getElementById("mobileError").style.display = "inline";
+            return;
+        }
+
+        // If validation passes
+        document.getElementById("confirmationMessage").style.display = "block";
+    });
+</script>
+</body>
+</html>
