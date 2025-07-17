@@ -9,7 +9,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/SowmiyaSrinivasanVijayaraghavan/PayNow_UI_Automation_Project.git'
+                checkout([$class: 'GitSCM',
+  		branches: [[name: '*/main']],
+  		userRemoteConfigs: [[url: 'https://github.com/SowmiyaSrinivasanVijayaraghavan/PayNow_UI_Automation_Project.git']]
+])
             }
         }
 
