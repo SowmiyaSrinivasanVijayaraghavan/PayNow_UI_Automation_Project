@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -25,6 +26,9 @@ pipeline {
         stage('Publish Report') {
             steps {
                 publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
                     reportDir: 'target/cucumber-html-reports',
                     reportFiles: 'overview-features.html',
                     reportName: 'Cucumber Report'
