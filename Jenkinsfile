@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven'    // must match the Maven tool name in Jenkins config
-        jdk 'Java 22'    // must match the JDK name in Jenkins config
+        jdk 'Java 21'    // must match the JDK name in Jenkins config
     }
 
     stages {
